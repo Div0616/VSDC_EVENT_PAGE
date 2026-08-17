@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import styles from './Nav.module.css'
 
 
@@ -11,7 +11,7 @@ const InstagramIcon = () => (
 // Crewmate logo
 const CrewmateLogo = () => (
   <img
-    src="/images/pngwing.com.png"
+    src={`${import.meta.env.BASE_URL}images/pngwing.com.png`}
     alt="Among Us crewmate logo"
     style={{
       height: 44,
@@ -36,7 +36,7 @@ const VsdcLogo = () => (
     }}
   >
     <img
-      src="/images/vsdc logo.jpeg"
+      src={`${import.meta.env.BASE_URL}images/vsdc-logo.jpeg`}
       alt="VSDC V logo"
       style={{
         height: 52,
@@ -60,11 +60,20 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const smoothScroll = useCallback((e, targetId) => {
+    e.preventDefault()
+    const el = document.getElementById(targetId)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    setMobileOpen(false)
+  }, [])
+
   return (
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`} id="nav">
       <div className={styles.navInner}>
         {/* Logo */}
-        <a href="#" className={styles.logo} id="nav-logo">
+        <a href="#hero" onClick={(e) => smoothScroll(e, 'hero')} className={styles.logo} id="nav-logo">
           <CrewmateLogo />
           {/* V logo + SDC text grouped tightly */}
           <span style={{ display: 'flex', alignItems: 'center', gap: '0px' }}>
@@ -85,11 +94,11 @@ export default function Nav() {
 
         {/* Desktop Links */}
         <ul className={styles.navLinks} id="nav-links">
-          <li><a href="#" className={styles.navLink} id="nav-games">Event <span className={styles.caret}></span></a></li>
-          <li><a href="#" className={styles.navLink} id="nav-news">The Crew</a></li>
-          <li><a href="#" className={styles.navLink} id="nav-about">About <span className={styles.caret}></span></a></li>
-          <li><a href="#" className={styles.navLink} id="nav-shop">Prizes</a></li>
-          <li><a href="#" className={styles.navLink} id="nav-shop">Contact</a></li>
+          <li><a href="#how-to-play" onClick={(e) => smoothScroll(e, 'how-to-play')} className={styles.navLink} id="nav-games">Event <span className={styles.caret}></span></a></li>
+          <li><a href="#awards" onClick={(e) => smoothScroll(e, 'awards')} className={styles.navLink} id="nav-news">The Crew</a></li>
+          <li><a href="#intro" onClick={(e) => smoothScroll(e, 'intro')} className={styles.navLink} id="nav-about">About <span className={styles.caret}></span></a></li>
+          <li><a href="#merch-cta" onClick={(e) => smoothScroll(e, 'merch-cta')} className={styles.navLink} id="nav-prizes">Prizes</a></li>
+          <li><a href="#footer" onClick={(e) => smoothScroll(e, 'footer')} className={styles.navLink} id="nav-contact">Contact</a></li>
         </ul>
 
         {/* Social Icons */}
@@ -113,10 +122,11 @@ export default function Nav() {
 
       {/* Mobile Menu */}
       <div className={`${styles.mobileMenu} ${mobileOpen ? styles.mobileOpen : ''}`} id="nav-mobile-menu">
-        <a href="#" className={styles.mobileLink}>Games</a>
-        <a href="#" className={styles.mobileLink}>News</a>
-        <a href="#" className={styles.mobileLink}>About</a>
-        <a href="#" className={styles.mobileLink}>Shop</a>
+        <a href="#how-to-play" onClick={(e) => smoothScroll(e, 'how-to-play')} className={styles.mobileLink}>Event</a>
+        <a href="#awards" onClick={(e) => smoothScroll(e, 'awards')} className={styles.mobileLink}>The Crew</a>
+        <a href="#intro" onClick={(e) => smoothScroll(e, 'intro')} className={styles.mobileLink}>About</a>
+        <a href="#merch-cta" onClick={(e) => smoothScroll(e, 'merch-cta')} className={styles.mobileLink}>Prizes</a>
+        <a href="#footer" onClick={(e) => smoothScroll(e, 'footer')} className={styles.mobileLink}>Contact</a>
         <div className={styles.mobileSocials}>
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon} aria-label="Instagram"><InstagramIcon /></a>
         </div>
