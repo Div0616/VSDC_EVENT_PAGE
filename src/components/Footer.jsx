@@ -18,8 +18,12 @@ export default function Footer() {
 
           <div className={styles.links}>
             <div className={styles.linkCol}>
-              <h4 className={styles.colTitle}>Game</h4>
-              <a href="#" className={styles.link}>Download</a>
+              <h4 className={styles.colTitle}>Brochure</h4>
+              <a
+                href={`${import.meta.env.BASE_URL}images/brochure.jpeg`}
+                download="VighnoSpark-Brochure.jpeg"
+                className={styles.link}
+              >Download</a>
             </div>
             {/* <div className={styles.linkCol}>
               <h4 className={styles.colTitle}>Company</h4>

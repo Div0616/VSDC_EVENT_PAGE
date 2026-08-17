@@ -14,7 +14,7 @@ const crew = [
     img: 'manas-shukla.jpeg',
     name: 'Manas Shukla',
     position: 'President',
-    contact: '+91',
+    contact: '+91 8928290947',
     accentColor: '#ff8c00',
   },
   {
@@ -22,7 +22,7 @@ const crew = [
     img: 'mahima-singh.jpeg',
     name: 'Mahima Singh',
     position: 'Vice President',
-    contact: '+91',
+    contact: '+91 7498520936',
     accentColor: '#3aa0ff',
   },
   {
@@ -30,7 +30,7 @@ const crew = [
     img: 'Gyanankur.jpeg',
     name: 'Gyanankur Baruah',
     position: 'Technical Lead',
-    contact: '+91',
+    contact: '+91 9136149564',
     accentColor: '#4ade80',
   },
   {
@@ -38,7 +38,7 @@ const crew = [
     img: 'amiti-naik.jpeg',
     name: 'Amiti Naik',
     position: 'Marketing Head',
-    contact: '+91',
+    contact: '+91 9892847915',
     accentColor: '#f472b6',
   },
   {
@@ -54,7 +54,7 @@ const crew = [
     img: 'asyush-singh.jpeg',
     name: 'Aayush Singh',
     position: 'PR Head',
-    contact: '+91',
+    contact: '+91 7276793362',
     accentColor: '#22d3ee',
   },
   {
@@ -62,7 +62,7 @@ const crew = [
     img: 'asmi.jpeg',
     name: 'Asmi Patel',
     position: 'Event Coordinator',
-    contact: '+91',
+    contact: '+91 9324096259',
     accentColor: '#fbbf24',
   },
 ]
