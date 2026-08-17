@@ -25,7 +25,7 @@ export default function Hero() {
       {/* ── SINGLE HERO BANNER IMAGE ── */}
       <div className={styles.bannerWrap}>
         <img
-          src="/images/hero banner.jpg"
+          src={`${import.meta.env.BASE_URL}images/hero-banner.jpg`}
           alt="Among Us crewmates floating in space — hero banner"
           className={styles.bannerImg}
           onLoad={(e) => {

@@ -17,7 +17,7 @@ export default function MerchCTA() {
       {/* ── BACKGROUND IMAGE ── */}
       <div className={styles.bgWrap}>
         <ImgPlaceholder
-          src="/images/merch store bg.jpg"
+          src={`${import.meta.env.BASE_URL}images/merch-store-bg.jpg`}
           alt="Among Us merchandise market stall with crewmate characters"
           fill
           accentColor="#f59e0b"

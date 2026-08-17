@@ -11,7 +11,7 @@ import styles from './Awards.module.css'
 const crew = [
   {
     id: 'member-1',
-    img: 'manas shukla.jpeg',
+    img: 'manas-shukla.jpeg',
     name: 'Manas Shukla',
     position: 'President',
     contact: '+91',
@@ -19,7 +19,7 @@ const crew = [
   },
   {
     id: 'member-2',
-    img: 'mahima singh.jpeg',
+    img: 'mahima-singh.jpeg',
     name: 'Mahima Singh',
     position: 'Vice President',
     contact: '+91',
@@ -35,7 +35,7 @@ const crew = [
   },
   {
     id: 'member-4',
-    img: 'amiti naik.jpeg',
+    img: 'amiti-naik.jpeg',
     name: 'Amiti Naik',
     position: 'Marketing Head',
     contact: '+91',
@@ -43,7 +43,7 @@ const crew = [
   },
   {
     id: 'member-5',
-    img: 'WhatsApp Image 2026-08-09 at 14.49.10.jpeg',
+    img: 'whatsapp-image-2026-08-09.jpeg',
     name: 'Divyanshu Singh',
     position: 'Secretary',
     contact: '+91 8446638364',
@@ -51,7 +51,7 @@ const crew = [
   },
   {
     id: 'member-6',
-    img: 'Asyush singh.jpeg',
+    img: 'asyush-singh.jpeg',
     name: 'Aayush Singh',
     position: 'PR Head',
     contact: '+91',
@@ -59,7 +59,7 @@ const crew = [
   },
   {
     id: 'member-7',
-    img: 'mahima singh.jpeg',
+    img: 'asmi.jpeg',
     name: 'Asmi Patel',
     position: 'Event Coordinator',
     contact: '+91',
@@ -89,7 +89,7 @@ export default function Awards() {
               {/* ── PHOTO ── */}
               <div className={styles.photoWrap}>
                 <img
-                  src={`/images/${member.img}`}
+                  src={`${import.meta.env.BASE_URL}images/${member.img}`}
                   alt={`${member.name} — ${member.position}`}
                   className={styles.photo}
                   onError={(e) => {

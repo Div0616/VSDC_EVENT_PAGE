@@ -182,7 +182,7 @@ export default function HowToPlay() {
         <div className={styles.header}>
           <div className={styles.crewAccentLeft}>
             <ImgPlaceholder
-              src="/images/floating_in_the_background_1.png"
+              src={`${import.meta.env.BASE_URL}images/floating_in_the_background_1.png`}
               alt="Red crewmate character"
               width={60}
               height={72}
@@ -195,7 +195,7 @@ export default function HowToPlay() {
           <h2 className={styles.heading} id="how-to-play-heading">How to Play</h2>
           <div className={styles.crewAccentRight}>
             <ImgPlaceholder
-              src="/images/floating_in_the_background_2.png"
+              src={`${import.meta.env.BASE_URL}images/floating_in_the_background_2.png`}
               alt="Yellow crewmate character"
               width={60}
               height={72}
@@ -221,7 +221,7 @@ export default function HowToPlay() {
           <div className={`${styles.banner} ${styles.crewBanner}`}>
             {/* ── CREW BANNER IMAGE ── */}
             <img
-              src="/images/crew banner.jpg"
+              src={`${import.meta.env.BASE_URL}images/crew-banner.jpg`}
               alt="The Crew banner"
               style={{
                 position: 'absolute',
@@ -248,7 +248,7 @@ export default function HowToPlay() {
           <div className={`${styles.banner} ${styles.impostorBanner}`}>
             {/* ── IMPOSTOR BANNER IMAGE ── */}
             <img
-              src="/images/imposter banner img.jpg"
+              src={`${import.meta.env.BASE_URL}images/imposter-banner-img.jpg`}
               alt="The Impostor banner"
               style={{
                 position: 'absolute',

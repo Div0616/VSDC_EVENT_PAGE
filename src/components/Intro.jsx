@@ -19,7 +19,7 @@ export default function Intro() {
         <div className={styles.accentLeft} aria-hidden="true">
           <div className={styles.floatLeft}>
             <ImgPlaceholder
-              src="/images/floating_in_the_background_2.png"
+              src={`${import.meta.env.BASE_URL}images/floating_in_the_background_2.png`}
               alt="Yellow crewmate character"
               width={72}
               height={86}
@@ -35,7 +35,7 @@ export default function Intro() {
         <div className={styles.accentRight} aria-hidden="true">
           <div className={styles.floatRight}>
             <ImgPlaceholder
-              src="/images/floating_in_the_background_1.png"
+              src={`${import.meta.env.BASE_URL}images/floating_in_the_background_1.png`}
               alt="Red crewmate character"
               width={60}
               height={72}
