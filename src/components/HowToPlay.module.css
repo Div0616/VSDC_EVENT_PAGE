@@ -1,0 +1,243 @@
+.howToPlay {
+  /* clamp so it's spacious on desktop, compact on mobile */
+  padding: clamp(60px, 8vw, 100px) 0;
+  background: linear-gradient(180deg, #0b0c10 0%, #0d0f1a 50%, #0b0c10 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2.5vw, 24px);
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.crewAccentLeft {
+  animation: floatLeft 4s ease-in-out infinite;
+  will-change: transform;
+  flex-shrink: 0;
+}
+
+.crewAccentRight {
+  animation: floatRight 3.5s ease-in-out infinite;
+  will-change: transform;
+  flex-shrink: 0;
+}
+
+@keyframes floatLeft {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-10px) rotate(-2deg); }
+}
+
+@keyframes floatRight {
+  0%, 100% { transform: translateY(0) rotate(5deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+.heading {
+  font-family: 'Fredoka', 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 6vw, 64px);
+  color: white;
+  text-align: center;
+}
+
+/* Intro paragraph */
+.introPara {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: #c7c7cf;
+  line-height: 1.75;
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto clamp(48px, 6vw, 80px);
+}
+
+.pinkHighlight {
+  color: #ff5fa2;
+  font-weight: 600;
+}
+
+/* Banner section */
+.bannerSection {
+  margin-bottom: clamp(48px, 6vw, 80px);
+}
+
+.banner {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: clamp(20px, 2.5vw, 28px);
+  min-height: clamp(100px, 14vw, 140px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.crewBanner {
+  background: linear-gradient(135deg, #1a4080 0%, #1e5fbf 50%, #3aa0ff 100%);
+  box-shadow: 0 8px 40px rgba(58, 160, 255, 0.3);
+}
+
+.impostorBanner {
+  background: linear-gradient(135deg, #7f1d1d 0%, #9b2020 50%, #dc2626 100%);
+  box-shadow: 0 8px 40px rgba(220, 38, 38, 0.3);
+  min-height: clamp(180px, 22vw, 260px);
+}
+
+.bannerImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.bannerTextOverlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 30px;
+}
+
+.bannerTitle {
+  font-family: 'Fredoka', 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 56px);
+  color: white;
+  letter-spacing: 4px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 0 60px rgba(255,255,255,0.2);
+  transform: skewX(-3deg);
+}
+
+.impostorTitle {
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5), 0 0 60px rgba(220, 38, 38, 0.4);
+}
+
+/* Objective line */
+.objectiveLine {
+  text-align: center;
+  margin-bottom: clamp(24px, 3vw, 36px);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(13px, 1.4vw, 16px);
+}
+
+.objectiveLabel {
+  color: #8b8b9a;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.objectiveText {
+  color: #3aa0ff;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.impostorObjective {
+  color: #f87171;
+}
+
+/* Task grid */
+.taskGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(10px, 1.5vw, 16px);
+}
+
+.taskItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: #1c1d24;
+  border-radius: 14px;
+  padding: clamp(14px, 2vw, 18px) clamp(14px, 2vw, 20px);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+/* Only apply translateX hover on devices that support hover (not touch) */
+@media (hover: hover) and (pointer: fine) {
+  .taskItem:hover {
+    background: #22232d;
+    border-color: rgba(255,255,255,0.12);
+    transform: translateX(4px);
+  }
+}
+
+/* Touch tap feedback */
+@media (hover: none) {
+  .taskItem:active {
+    background: #22232d;
+    border-color: rgba(255,255,255,0.12);
+  }
+}
+
+.taskIconWrap {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.taskIcon {
+  font-size: 18px;
+}
+
+.taskText {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: #c7c7cf;
+  line-height: 1.6;
+  padding-top: 4px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 clamp(16px, 4vw, 24px);
+  }
+  .taskGrid {
+    grid-template-columns: 1fr;
+  }
+  .header {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide crewmate accents on very small phones to avoid layout crowding */
+  .crewAccentLeft,
+  .crewAccentRight {
+    display: none;
+  }
+  .heading {
+    font-size: clamp(28px, 9vw, 38px);
+  }
+  .taskGrid {
+    gap: 8px;
+  }
+  .taskItem {
+    gap: 10px;
+  }
+  .taskIconWrap {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+  }
+}

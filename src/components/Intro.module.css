@@ -1,0 +1,106 @@
+.intro {
+  padding: var(--section-y, 80px) 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, #0b0c10 0%, #0d0f18 50%, #0b0c10 100%);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 48px);
+  position: relative;
+}
+
+/* ── CREWMATE ACCENTS ── */
+.accentLeft {
+  position: absolute;
+  left: clamp(8px, 3vw, 48px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+.accentRight {
+  position: absolute;
+  right: clamp(8px, 3vw, 48px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+.floatLeft  { animation: floatLeft  4s ease-in-out infinite; }
+.floatRight { animation: floatRight 3.5s ease-in-out infinite; }
+
+@keyframes floatLeft {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50%       { transform: translateY(-14px) rotate(-2deg); }
+}
+@keyframes floatRight {
+  0%, 100% { transform: translateY(0) rotate(8deg); }
+  50%       { transform: translateY(-10px) rotate(3deg); }
+}
+
+/* ── TEXT BLOCK ── */
+.textBlock {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.heading {
+  font-family: 'Fredoka', 'Baloo 2', sans-serif;
+  font-weight: 600;
+  font-size: clamp(22px, 3.5vw, 36px);
+  color: #fff;
+  line-height: 1.35;
+  margin-bottom: 20px;
+}
+.highlight    { color: #3aa0ff; }
+.highlightRed { color: #f87171; }
+
+.subtext {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(14px, 1.6vw, 17px);
+  color: #c7c7cf;
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto 36px;
+}
+
+/* Platform badges */
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.platformBadge {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 7px clamp(12px, 1.5vw, 18px);
+  transition: all 0.2s;
+  cursor: default;
+}
+.platformBadge:hover {
+  background: rgba(58,160,255,0.1);
+  border-color: rgba(58,160,255,0.3);
+  transform: translateY(-2px);
+}
+.platformLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(11px, 1.1vw, 13px);
+  font-weight: 600;
+  color: #c7c7cf;
+  letter-spacing: .4px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .accentLeft, .accentRight { display: none; } /* hide at narrow widths */
+}
+@media (max-width: 480px) {
+  .heading { font-size: 22px; }
+  .subtext { font-size: 14px; }
+}

@@ -1,0 +1,135 @@
+.footer {
+  background: #07080c;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 60px 0 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.top {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 48px;
+}
+
+.brand {
+  flex-shrink: 0;
+  max-width: 260px;
+}
+
+.logoText {
+  font-family: 'Fredoka', 'Baloo 2', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: 2.5px;
+  color: white;
+  display: block;
+  margin-bottom: 12px;
+  text-shadow: 0 0 20px rgba(220,38,38,0.3);
+}
+
+.tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #8b8b9a;
+  line-height: 1.6;
+}
+
+.links {
+  display: flex;
+  gap: 60px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.linkCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.colTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c7c7cf;
+  margin-bottom: 4px;
+}
+
+.link {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #8b8b9a;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #3aa0ff;
+}
+
+.bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #8b8b9a;
+}
+
+.legal {
+  display: flex;
+  gap: 24px;
+}
+
+.legalLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #8b8b9a;
+  transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+  color: #c7c7cf;
+}
+
+@media (max-width: 900px) {
+  .top {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .links {
+    justify-content: flex-start;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 20px;
+  }
+  .bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+  .legal {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+  .links {
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+}
