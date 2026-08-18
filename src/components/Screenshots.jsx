@@ -1,13 +1,13 @@
 import styles from './Screenshots.module.css'
 
 const screenshots = [
-  { id: 'ss1', tag: 'CREW', tagColor: '#22d3ee' },
-  { id: 'ss2', tag: null },
-  { id: 'ss3', tag: null },
-  { id: 'ss4', tag: null },
-  { id: 'ss5', tag: null },
-  { id: 'ss6', tag: null },
-  { id: 'ss7', tag: 'LIVE', tagColor: '#f87171' },
+  { id: 'ss1' },
+  { id: 'ss2' },
+  { id: 'ss3' },
+  { id: 'ss4' },
+  { id: 'ss5' },
+  { id: 'ss6' },
+  { id: 'ss7' },
 ]
 
 export default function Screenshots() {

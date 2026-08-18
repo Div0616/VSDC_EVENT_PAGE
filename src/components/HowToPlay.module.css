@@ -210,13 +210,24 @@
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .container {
-    padding: 0 clamp(16px, 4vw, 24px);
+    padding: 0 clamp(12px, 4vw, 24px);
   }
+  /* Keep 2-column grid on tablets — no single column collapse */
   .taskGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(8px, 2vw, 14px);
   }
   .header {
     gap: 12px;
+  }
+  .taskItem {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+  .taskIconWrap {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
   }
 }
 
@@ -227,17 +238,46 @@
     display: none;
   }
   .heading {
-    font-size: clamp(28px, 9vw, 38px);
+    font-size: clamp(26px, 9vw, 36px);
   }
+  /* Still 2 columns on small phones — user requested pairs */
   .taskGrid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
   .taskItem {
-    gap: 10px;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 10px;
   }
   .taskIconWrap {
-    width: 34px;
-    height: 34px;
-    min-width: 34px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 8px;
+  }
+  .taskText {
+    font-size: 11px;
+  }
+}
+
+/* Ultra small (320px and below) — still 2 columns but even tighter */
+@media (max-width: 360px) {
+  .taskGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .taskItem {
+    padding: 8px;
+  }
+  .taskIconWrap {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    border-radius: 6px;
+  }
+  .taskText {
+    font-size: 10px;
+    line-height: 1.4;
   }
 }

@@ -47,12 +47,11 @@
   margin: 0 auto;
 }
 
-/* ── GRID ── */
+/* ── GRID — CSS Grid for precise 2-column guarantee on mobile ── */
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(14px, 2vw, 24px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 2vw, 24px);
 }
 
 /* ── CARD ── */
@@ -62,9 +61,6 @@
   overflow: hidden;
   cursor: pointer;
   aspect-ratio: 3 / 4;
-  /* Each card takes up 1/4 of the row minus gaps → 4 per row */
-  width: calc(25% - clamp(14px, 2vw, 24px) * 3 / 4);
-  min-width: 180px;
   background: #1c1d24;
   border: 1px solid rgba(255,255,255,0.07);
   box-shadow: 0 8px 32px rgba(0,0,0,0.35);
@@ -118,6 +114,7 @@
   color: rgba(199,199,207,0.5);
   letter-spacing: 0.5px;
 }
+
 /* ── SLIDE-UP OVERLAY ── */
 .overlay {
   position: absolute;
@@ -140,17 +137,17 @@
 }
 
 .overlayInner {
-  padding: clamp(14px, 2vw, 20px);
+  padding: clamp(10px, 1.5vw, 20px);
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .memberName {
   font-family: 'Fredoka', 'Baloo 2', sans-serif;
   font-weight: 700;
-  font-size: clamp(15px, 1.6vw, 19px);
+  font-size: clamp(13px, 1.4vw, 19px);
   color: #ffffff;
   letter-spacing: 0.3px;
   line-height: 1.2;
@@ -160,7 +157,7 @@
 .memberPosition {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: clamp(11px, 1.1vw, 13px);
+  font-size: clamp(10px, 0.9vw, 13px);
   letter-spacing: 0.8px;
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
@@ -168,41 +165,60 @@
 
 .dividerLine {
   height: 2px;
-  width: 36px;
+  width: 28px;
   border-radius: 2px;
-  margin: 4px 0;
+  margin: 2px 0;
   opacity: 0.85;
 }
 
 .memberContact {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(11px, 1.1vw, 13px);
+  font-size: clamp(10px, 0.9vw, 13px);
   color: #d4d4dc;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   letter-spacing: 0.2px;
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 1024px) {
-  /* 3 per row on medium screens */
-  .card {
-    width: calc(33.333% - clamp(14px, 2vw, 24px) * 2 / 3);
+
+/* Large tablets / small desktops → 3 columns */
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 680px) {
-  /* 2 per row on small screens */
-  .card {
-    width: calc(50% - clamp(10px, 2vw, 14px) / 2);
+/* Tablets (portrait) → 2 columns — ALWAYS pairs */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(10px, 3vw, 16px);
+  }
+  .overlayInner {
+    padding: 10px 12px;
   }
 }
 
+/* Small phones → still 2 columns, tighter gaps */
 @media (max-width: 420px) {
-  /* 2 per row on very small screens, tighter gap */
-  .grid { gap: 10px; }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
   .card {
-    width: calc(50% - 5px);
+    border-radius: 14px;
+  }
+  .memberName {
+    font-size: 12px;
+  }
+  .memberPosition,
+  .memberContact {
+    font-size: 10px;
+  }
+  .dividerLine {
+    width: 20px;
+    margin: 1px 0;
   }
 }

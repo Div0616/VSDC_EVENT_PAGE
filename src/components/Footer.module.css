@@ -1,19 +1,24 @@
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
 .footer {
   background: #07080c;
   border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 60px 0 0;
+  padding: 48px 0 0;
 }
 
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 clamp(16px, 4vw, 48px);
 }
 
+/* ── TOP ROW: brand + links side by side on desktop ── */
 .top {
   display: flex;
-  gap: 80px;
-  margin-bottom: 48px;
+  align-items: flex-start;
+  gap: 64px;
+  margin-bottom: 40px;
 }
 
 .brand {
@@ -28,7 +33,7 @@
   letter-spacing: 2.5px;
   color: white;
   display: block;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   text-shadow: 0 0 20px rgba(220,38,38,0.3);
 }
 
@@ -41,7 +46,7 @@
 
 .links {
   display: flex;
-  gap: 60px;
+  gap: 48px;
   flex: 1;
   justify-content: flex-end;
 }
@@ -49,17 +54,17 @@
 .linkCol {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .colTitle {
   font-family: 'Inter', sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #c7c7cf;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .link {
@@ -69,17 +74,16 @@
   transition: color 0.2s ease;
 }
 
-.link:hover {
-  color: #3aa0ff;
-}
+.link:hover { color: #3aa0ff; }
 
+/* ── BOTTOM ── */
 .bottom {
   border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 24px 0;
+  padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
 }
 
 .copy {
@@ -90,7 +94,7 @@
 
 .legal {
   display: flex;
-  gap: 24px;
+  gap: 20px;
 }
 
 .legalLink {
@@ -99,37 +103,68 @@
   color: #8b8b9a;
   transition: color 0.2s ease;
 }
+.legalLink:hover { color: #c7c7cf; }
 
-.legalLink:hover {
-  color: #c7c7cf;
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════ */
+
+/* Tablets — stack brand above links */
+@media (max-width: 900px) {
+  .footer { padding-top: 36px; }
+  .top {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-bottom: 28px;
+  }
+  .brand { max-width: 100%; flex: 1 1 180px; }
+  .links { justify-content: flex-start; flex: 1 1 auto; gap: 32px; }
 }
 
-@media (max-width: 900px) {
+/* Phones — compact everything */
+@media (max-width: 600px) {
+  .footer { padding-top: 24px; }
+  .container { padding: 0 16px; }
+
   .top {
     flex-direction: column;
-    gap: 40px;
+    gap: 12px;
+    margin-bottom: 16px;
   }
-  .links {
-    justify-content: flex-start;
-    gap: 40px;
-  }
-}
 
-@media (max-width: 600px) {
-  .container {
-    padding: 0 20px;
+  .logoText {
+    font-size: 17px;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
   }
+  .tagline { font-size: 12px; line-height: 1.5; }
+
+  .links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    justify-content: flex-start;
+  }
+  .linkCol { gap: 6px; }
+  .colTitle { font-size: 10px; margin-bottom: 0; }
+  .link { font-size: 12px; }
+
   .bottom {
     flex-direction: column;
+    align-items: center;
     text-align: center;
+    gap: 6px;
+    padding: 12px 0;
   }
-  .legal {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
-  }
-  .links {
-    flex-wrap: wrap;
-    gap: 32px;
-  }
+  .copy { font-size: 12px; }
+  .legal { gap: 12px; justify-content: center; flex-wrap: wrap; }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .footer { padding-top: 16px; }
+  .top { gap: 10px; margin-bottom: 12px; }
+  .logoText { font-size: 15px; }
+  .tagline { font-size: 11px; }
 }

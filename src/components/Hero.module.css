@@ -1,10 +1,12 @@
 /* ══════════════════════════════════════════
-   HERO SECTION
+   HERO SECTION — Fully Responsive for All Screens
 ══════════════════════════════════════════ */
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100svh; /* svh = safe viewport height (handles mobile browser bars) */
+  /* Use 100svh on supporting browsers for correct mobile viewport */
+  min-height: 100svh;
+  min-height: 100vh; /* fallback */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,6 +25,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* On portrait phones show top of image, on landscape show center */
   object-position: center top;
   display: block;
 }
@@ -92,10 +95,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  gap: 28px;
-  padding: 0 24px 80px;
+  gap: clamp(16px, 3vw, 28px);
+  padding: 0 clamp(16px, 5vw, 48px) clamp(60px, 8vh, 100px);
   width: 100%;
   min-height: 100svh;
+  min-height: 100vh; /* fallback */
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.7s ease, transform 0.7s ease;
@@ -106,13 +110,13 @@
   transform: translateY(0);
 }
 
-/* AMONG US title */
+/* Title — scales fluidly from phone to 4K */
 .title {
   font-family: 'Fredoka', 'Baloo 2', sans-serif;
   font-weight: 700;
-  font-size: clamp(56px, 10vw, 150px);
+  font-size: clamp(40px, 9vw, 150px);
   color: #ffffff;
-  letter-spacing: clamp(4px, 0.8vw, 10px);
+  letter-spacing: clamp(2px, 0.6vw, 10px);
   line-height: 1;
   text-align: center;
   text-shadow:
@@ -127,15 +131,16 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: clamp(12px, 1.8vw, 18px) clamp(28px, 4vw, 52px);
+  padding: clamp(12px, 1.8vw, 18px) clamp(24px, 4vw, 52px);
   border-radius: 50px;
   background: linear-gradient(135deg, #3aa0ff 0%, #2563eb 100%);
   color: #fff;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
-  font-size: clamp(14px, 1.6vw, 17px);
+  font-size: clamp(13px, 1.5vw, 17px);
   border: none;
   cursor: pointer;
+  white-space: nowrap;
   box-shadow: 0 8px 32px rgba(58, 160, 255, 0.5), 0 4px 12px rgba(0,0,0,0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   animation: btnPulse 3s ease-in-out infinite;
@@ -157,21 +162,81 @@
   50%       { box-shadow: 0 8px 50px rgba(58,160,255,0.75), 0 4px 12px rgba(0,0,0,0.4); }
 }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  .content {
-    padding-bottom: 60px;
-    gap: 20px;
-    min-height: 85svh;
-  }
+/* ═══════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+═══════════════════════════════════════════ */
+
+/* Large tablets (portrait) / small laptops  */
+@media (max-width: 1024px) {
   .title {
-    font-size: clamp(48px, 16vw, 80px);
-    letter-spacing: 3px;
+    font-size: clamp(36px, 8vw, 100px);
   }
 }
 
+/* Tablets (portrait) — iPad, Surface etc. */
+@media (max-width: 768px) {
+  .content {
+    padding-bottom: clamp(48px, 8vh, 80px);
+    gap: clamp(14px, 3vw, 22px);
+    min-height: 100svh;
+  }
+  .title {
+    font-size: clamp(34px, 10vw, 72px);
+    letter-spacing: clamp(1px, 0.4vw, 5px);
+  }
+  .gradBottom { height: 50%; }
+}
+
+/* Phones (portrait ≤ 480px) */
 @media (max-width: 480px) {
-  .content { padding-bottom: 48px; }
-  .title { font-size: clamp(40px, 18vw, 64px); letter-spacing: 2px; }
+  .content {
+    padding: 0 16px clamp(40px, 10vh, 64px);
+    gap: 16px;
+  }
+  .title {
+    font-size: clamp(32px, 11vw, 56px);
+    letter-spacing: 2px;
+  }
   .gradBottom { height: 55%; }
+}
+
+/* Very small phones (≤ 360px — e.g. older Android) */
+@media (max-width: 360px) {
+  .title {
+    font-size: clamp(28px, 12vw, 48px);
+    letter-spacing: 1px;
+  }
+  .ctaBtn {
+    font-size: 12px;
+    padding: 11px 20px;
+    gap: 7px;
+  }
+}
+
+/* ── LANDSCAPE phones (short viewport, wide) ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vw; /* fill width when rotated */
+  }
+  .content {
+    min-height: 100svh;
+    justify-content: center; /* center vertically in landscape */
+    padding-bottom: clamp(20px, 4vh, 40px);
+    gap: 12px;
+  }
+  .title {
+    font-size: clamp(28px, 6vw, 60px);
+    letter-spacing: 2px;
+  }
+  .gradBottom { height: 40%; }
+}
+
+/* ── Wide / Ultra-wide (≥ 1920px) ── */
+@media (min-width: 1920px) {
+  .title {
+    font-size: clamp(100px, 7vw, 180px);
+  }
+  .content {
+    padding-bottom: 120px;
+  }
 }
